@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>SmartSched - Smart Classroom</title>
+
+    <link rel="stylesheet" href="static/css/style.css">
+
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <h2>SmartSched</h2>
+            <p>Smart Classroom & Timetable Scheduler</p>
+        </div>
+
+        <nav>
+
+            <button class="nav-btn active"
+                    onclick="showPage('dashboard', this)">
+                Dashboard
+            </button>
+
+            <button class="nav-btn"
+                    onclick="showPage('faculty', this)">
+                Faculty
+            </button>
+
+            <button class="nav-btn"
+                    onclick="showPage('rooms', this)">
+                Classrooms
+            </button>
+
+            <button class="nav-btn"
+                    onclick="showPage('timetable', this)">
+                Timetable
+            </button>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+
+        <!-- DASHBOARD -->
+        <section id="dashboard"
+                 class="page active-page">
+
+            <div class="page-header">
+
+                <h1>Dashboard</h1>
+
+                <p>
+                    Welcome to SmartSched
+                </p>
+
+            </div>
+
+
+            <!-- DASHBOARD COUNTS -->
+            <div class="cards">
+
+                <div class="card">
+
+                    <p>Total Faculty</p>
+
+                    <h2 id="facultyCount">
+                        0
+                    </h2>
+
+                </div>
+
+
+                <div class="card">
+
+                    <p>Total Classrooms</p>
+
+                    <h2 id="roomCount">
+                        0
+                    </h2>
+
+                </div>
+
+
+                <div class="card">
+
+                    <p>Scheduled Classes</p>
+
+                    <h2 id="classCount">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <!-- GENERATE TIMETABLE -->
+            <div class="action-box">
+
+                <h2>Generate Smart Timetable</h2>
+
+                <p>
+                    Generate a timetable while avoiding
+                    faculty and classroom conflicts.
+                </p>
+
+
+                <!-- Timetable details -->
+                <div class="timetable-inputs">
+
+                    <input type="text"
+                           id="department"
+                           placeholder="Department"
+                           required>
+
+
+                    <input type="number"
+                           id="semester"
+                           placeholder="Semester"
+                           min="1"
+                           max="8"
+                           required>
+
+
+                    <input type="text"
+                           id="section"
+                           placeholder="Section"
+                           required>
+
+                </div>
+
+
+                <button id="generateBtn"
+                        class="primary-btn">
+                    Generate Timetable
+                </button>
+
+
+                <p id="statusMessage">
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- FACULTY PAGE -->
+        <section id="faculty"
+                 class="page">
+
+            <div class="page-header">
+
+                <h1>Faculty Management</h1>
+
+                <p>
+                    Add and manage faculty members.
+                </p>
+
+            </div>
+
+
+            <!-- ADD FACULTY -->
+            <div class="form-card">
+
+                <h3>Add Faculty</h3>
+
+
+                <form id="facultyForm">
+
+                    <input type="text"
+                           id="facultyName"
+                           placeholder="Faculty Name"
+                           required>
+
+
+                    <input type="text"
+                           id="facultyDepartment"
+                           placeholder="Department"
+                           required>
+
+
+                    <input type="email"
+                           id="facultyEmail"
+                           placeholder="Email Address"
+                           required>
+
+
+                    <input type="text"
+                           id="facultySubjects"
+                           placeholder="Subjects separated by commas"
+                           required>
+
+
+                    <button type="submit"
+                            class="primary-btn">
+
+                        Add Faculty
+
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <!-- FACULTY TABLE -->
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>No.</th>
+
+                            <th>Faculty Name</th>
+
+                            <th>Subjects</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <!-- Backend data will be displayed here -->
+                    <tbody id="facultyList">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- CLASSROOM PAGE -->
+        <section id="rooms"
+                 class="page">
+
+            <div class="page-header">
+
+                <h1>Classroom Management</h1>
+
+                <p>
+                    Add and manage classrooms.
+                </p>
+
+            </div>
+
+
+            <!-- ADD CLASSROOM -->
+            <div class="form-card">
+
+                <h3>Add Classroom</h3>
+
+
+                <form id="roomForm">
+
+                    <input type="text"
+                           id="roomNumber"
+                           placeholder="Room Number"
+                           required>
+
+
+                    <input type="number"
+                           id="roomCapacity"
+                           placeholder="Capacity"
+                           min="1"
+                           required>
+
+
+                    <select id="roomType"
+                            required>
+
+                        <option value="">
+                            Select Room Type
+                        </option>
+
+                        <option value="Classroom">
+                            Classroom
+                        </option>
+
+                        <option value="Computer Lab">
+                            Computer Lab
+                        </option>
+
+                        <option value="Smart Classroom">
+                            Smart Classroom
+                        </option>
+
+                    </select>
+
+
+                    <input type="text"
+                           id="roomFacilities"
+                           placeholder="Facilities separated by commas"
+                           required>
+
+
+                    <button type="submit"
+                            class="primary-btn">
+
+                        Add Classroom
+
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <!-- ROOM TABLE -->
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>No.</th>
+
+                            <th>Room</th>
+
+                            <th>Capacity</th>
+
+                            <th>Type</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <!-- Backend data will be displayed here -->
+                    <tbody id="roomList">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- TIMETABLE PAGE -->
+        <section id="timetable"
+                 class="page">
+
+            <div class="page-header">
+
+                <h1>Smart Timetable</h1>
+
+                <p>
+                    Conflict-free timetable generated
+                    by the scheduling system.
+                </p>
+
+            </div>
+
+
+            <button id="generateAgainBtn"
+                    class="primary-btn">
+
+                Generate / Refresh Timetable
+
+            </button>
+
+
+            <div class="table-container timetable-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Day</th>
+
+                            <th>Time</th>
+
+                            <th>Subject</th>
+
+                            <th>Faculty</th>
+
+                            <th>Classroom</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <!-- Generated timetable from backend will appear here -->
+                    <tbody id="timetableBody">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- JavaScript -->
+    <script src="static/js/app.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,338 @@
+/* =========================
+GENERAL
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #1f2937;
+}
+
+
+/* =========================
+SIDEBAR
+========================= */
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    background: #1e293b;
+    color: white;
+
+    padding: 25px;
+}
+
+.logo {
+    margin-bottom: 40px;
+}
+
+.logo h2 {
+    margin-bottom: 8px;
+}
+
+.logo p {
+    font-size: 13px;
+    color: #cbd5e1;
+    line-height: 1.5;
+}
+
+
+/* =========================
+NAVIGATION
+========================= */
+
+.nav-btn {
+    display: block;
+    width: 100%;
+
+    padding: 14px;
+    margin-bottom: 10px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: transparent;
+    color: white;
+
+    font-size: 15px;
+    text-align: left;
+
+    cursor: pointer;
+}
+
+.nav-btn:hover,
+.nav-btn.active {
+    background: #334155;
+}
+
+
+/* =========================
+MAIN CONTENT
+========================= */
+
+.main-content {
+    margin-left: 250px;
+    padding: 40px;
+}
+
+.page {
+    display: none;
+}
+
+.page.active-page {
+    display: block;
+}
+
+
+/* =========================
+PAGE HEADER
+========================= */
+
+.page-header {
+    margin-bottom: 30px;
+}
+
+.page-header h1 {
+    margin-bottom: 8px;
+}
+
+.page-header p {
+    color: #64748b;
+}
+
+
+/* =========================
+DASHBOARD CARDS
+========================= */
+
+.cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    margin-bottom: 30px;
+}
+
+.card {
+    background: white;
+    width: 220px;
+
+    padding: 22px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 4px 15px
+        rgba(0, 0, 0, 0.08);
+}
+
+.card p {
+    margin-top: 0;
+    color: #64748b;
+}
+
+.card h2 {
+    margin-bottom: 0;
+    font-size: 30px;
+}
+
+
+/* =========================
+CONTENT BOXES
+========================= */
+
+.action-box,
+.form-card {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 12px;
+
+    margin-bottom: 25px;
+
+    max-width: 850px;
+
+    box-shadow:
+        0 4px 15px
+        rgba(0, 0, 0, 0.06);
+}
+
+
+/* =========================
+FORMS
+========================= */
+
+form {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+input,
+select {
+    padding: 12px;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    min-width: 180px;
+}
+
+
+/* =========================
+TIMETABLE INPUTS
+========================= */
+
+.timetable-inputs {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.timetable-inputs input {
+    flex: 1;
+    min-width: 180px;
+}
+
+
+/* =========================
+BUTTONS
+========================= */
+
+.primary-btn {
+    padding: 12px 20px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #2563eb;
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+.primary-btn:hover {
+    background: #1d4ed8;
+}
+
+
+/* =========================
+TABLES
+========================= */
+
+.table-container {
+    background: white;
+
+    border-radius: 12px;
+
+    overflow-x: auto;
+
+    box-shadow:
+        0 4px 15px
+        rgba(0, 0, 0, 0.06);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 15px;
+
+    text-align: left;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+th {
+    background: #f1f5f9;
+}
+
+.empty-message {
+    text-align: center;
+    color: #64748b;
+}
+
+
+/* =========================
+TIMETABLE
+========================= */
+
+.timetable-container {
+    margin-top: 25px;
+}
+
+
+/* =========================
+STATUS MESSAGE
+========================= */
+
+#statusMessage {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+
+/* =========================
+MOBILE DESIGN
+========================= */
+
+@media (max-width: 768px) {
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .cards {
+        flex-direction: column;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    form {
+        flex-direction: column;
+    }
+
+    input,
+    select {
+        width: 100%;
+    }
+
+    .timetable-inputs {
+        flex-direction: column;
+    }
+
+    .timetable-inputs input {
+        width: 100%;
+    }
+
+}
