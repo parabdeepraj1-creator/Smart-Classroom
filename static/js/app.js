@@ -572,7 +572,7 @@ function displayTimetable(timetable) {
 
 
         row.innerHTML = `
-            <td>${item.day}</td>
+            <td>${item.day_id}</td>
             <td>${item.period_id}</td>
             <td>${item.subject_id}</td>
             <td>${item.teacher_id}</td>
